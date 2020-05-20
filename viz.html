@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Visualization | Neeley BIS Data Science Competition Summer 2020</title>
+  <meta name="description" content="Data Science Competition, 2020." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Visualization | Neeley BIS Data Science Competition Summer 2020" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Data Science Competition, 2020." />
+  <meta name="github-repo" content="kellyslaughter-tcu/BIS-Data-Science-Competition-2020" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Visualization | Neeley BIS Data Science Competition Summer 2020" />
+  
+  <meta name="twitter:description" content="Data Science Competition, 2020." />
+  
+
+<meta name="author" content="Kelly T Slaughter" />
+
+
+<meta name="date" content="2020-05-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="comb.html"/>
+<link rel="next" href="publishing.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a></li>
+<li class="chapter" data-level="2" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>2</b> Obtaining External Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="data.html"><a href="data.html#financial-data"><i class="fa fa-check"></i><b>2.1</b> Financial Data</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="data.html"><a href="data.html#commodity-prices"><i class="fa fa-check"></i><b>2.1.1</b> Commodity Prices</a></li>
+<li class="chapter" data-level="2.1.2" data-path="data.html"><a href="data.html#stock-prices"><i class="fa fa-check"></i><b>2.1.2</b> Stock Prices</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data.html"><a href="data.html#social-media-data"><i class="fa fa-check"></i><b>2.2</b> Social Media Data</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="data.html"><a href="data.html#twitter"><i class="fa fa-check"></i><b>2.2.1</b> Twitter</a></li>
+<li class="chapter" data-level="2.2.2" data-path="data.html"><a href="data.html#reddit"><i class="fa fa-check"></i><b>2.2.2</b> Reddit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="data.html"><a href="data.html#economic-data"><i class="fa fa-check"></i><b>2.3</b> Economic Data</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="data.html"><a href="data.html#unemployment-insurance"><i class="fa fa-check"></i><b>2.3.1</b> Unemployment Insurance</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="txt.html"><a href="txt.html"><i class="fa fa-check"></i><b>3</b> Text Analysis</a></li>
+<li class="chapter" data-level="4" data-path="comb.html"><a href="comb.html"><i class="fa fa-check"></i><b>4</b> Combining Data</a></li>
+<li class="chapter" data-level="5" data-path="viz.html"><a href="viz.html"><i class="fa fa-check"></i><b>5</b> Visualization</a><ul>
+<li class="chapter" data-level="5.1" data-path="viz.html"><a href="viz.html#data-prep"><i class="fa fa-check"></i><b>5.1</b> Data Prep</a></li>
+<li class="chapter" data-level="5.2" data-path="viz.html"><a href="viz.html#plots"><i class="fa fa-check"></i><b>5.2</b> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a><ul>
+<li class="chapter" data-level="6.1" data-path="publishing.html"><a href="publishing.html#bibliography"><i class="fa fa-check"></i><b>6.1</b> Bibliography</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Neeley BIS Data Science Competition<br/>Summer 2020</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="viz" class="section level1">
+<h1><span class="header-section-number">5</span> Visualization</h1>
+<p>While visualizations can be used for exploration and communication, for the competition, you will use plots to communicate, that is, share the relationships you have found in visual form. I did not find anything interesting between the price of gold, the daily spread of Tripwire prices, and the Twitter sentiment analysis.</p>
+<p>We will use the most popular visualization package in R, <code>ggplot2</code><span class="citation">(Wickham, Chang, et al. <a href="#ref-R-ggplot2">2020</a>)</span>, to create our graphs. Another popular R package used for visualizations is the <code>lattice</code> package. Base R also provides extensive plotting functions. <code>ggplot</code> uses themes as formatting templates (similar to a website’s use of css). The British Broadcasting Company provides a theme that renders a professional look to the graphs. The theme can be found in the package <code>bbplot</code> <span class="citation">(Stylianou et al. <a href="#ref-R-bbplot">2020</a>)</span>.</p>
+<div id="data-prep" class="section level2">
+<h2><span class="header-section-number">5.1</span> Data Prep</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(bbplot) <span class="co"># devtools::install_github(&#39;bbc/bbplot&#39;) # Not all packages are available via CRAN; run once after installing devtools package</span></code></pre></div>
+<p>Some visualizations are more readily generated from long formats rather than wide formats. In the chunk below, we use the <code>dplyr</code> <code>select</code> function to pull the four values we want to use for visualizations into a new data set called <code>final_data_long</code> (still in a wide format). We want to plot values like gold prices and number of tweets together, but the scale of the two is dramatically different. To remedy this issue, we use the <code>scale</code> command on each value which ‘centers’ the data (makes the middle value zero and adjusts the other values accordingly) and the divides the values by the value’s standard deviation. The result are sets of values with similar values.</p>
+<p>Finally, we call the <code>gather</code> function from <code>dplyr</code> (note that the code assumes we have already loaded <code>dplyr</code> into memory) to transition from wide to long.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">final_data_long &lt;-<span class="st"> </span>final_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(created_at, total_sentiment, TRIP.Diff, gold_morning_price)
+
+final_data_long<span class="op">$</span>gold_morning_price &lt;-<span class="st"> </span><span class="kw">scale</span>(final_data_long<span class="op">$</span>gold_morning_price)
+final_data_long<span class="op">$</span>total_sentiment &lt;-<span class="st"> </span><span class="kw">scale</span>(final_data_long<span class="op">$</span>total_sentiment)
+final_data_long<span class="op">$</span>TRIP.Diff &lt;-<span class="st"> </span><span class="kw">scale</span>(final_data_long<span class="op">$</span>TRIP.Diff)
+
+final_data_long &lt;-<span class="st"> </span>final_data_long <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gather</span>(source, value, total_sentiment, TRIP.Diff, gold_morning_price)</code></pre></div>
+<p>The difference between the formats are best explained through displaying the data sets as wide in Table <a href="viz.html#tab:Wide-Table">5.1</a> and long in Table <a href="viz.html#tab:Long-Table">5.2</a>.</p>
+<table>
+<caption><span id="tab:Wide-Table">Table 5.1: </span>Wide Format</caption>
+<thead>
+<tr class="header">
+<th align="left">created_at</th>
+<th align="right">n</th>
+<th align="right">total_sentiment</th>
+<th align="right">negative_words</th>
+<th align="right">Paris_count</th>
+<th align="right">gold_morning_price</th>
+<th align="right">TRIP.Diff</th>
+<th align="right">TRIP.Volume</th>
+<th align="left">DataValue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2020-05-11</td>
+<td align="right">26</td>
+<td align="right">64</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">1698.80</td>
+<td align="right">1.110001</td>
+<td align="right">4766500</td>
+<td align="left">26,153</td>
+</tr>
+<tr class="even">
+<td align="left">2020-05-12</td>
+<td align="right">26</td>
+<td align="right">40</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">1703.45</td>
+<td align="right">0.649999</td>
+<td align="right">3743300</td>
+<td align="left">26,153</td>
+</tr>
+<tr class="odd">
+<td align="left">2020-05-13</td>
+<td align="right">32</td>
+<td align="right">50</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">1699.85</td>
+<td align="right">1.480000</td>
+<td align="right">4786100</td>
+<td align="left">26,153</td>
+</tr>
+<tr class="even">
+<td align="left">2020-05-14</td>
+<td align="right">28</td>
+<td align="right">40</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">1716.40</td>
+<td align="right">1.140000</td>
+<td align="right">5610700</td>
+<td align="left">26,153</td>
+</tr>
+<tr class="odd">
+<td align="left">2020-05-15</td>
+<td align="right">40</td>
+<td align="right">56</td>
+<td align="right">8</td>
+<td align="right">0</td>
+<td align="right">1734.85</td>
+<td align="right">0.470000</td>
+<td align="right">2939200</td>
+<td align="left">26,153</td>
+</tr>
+<tr class="even">
+<td align="left">2020-05-18</td>
+<td align="right">46</td>
+<td align="right">14</td>
+<td align="right">20</td>
+<td align="right">0</td>
+<td align="right">1756.90</td>
+<td align="right">2.790001</td>
+<td align="right">8243600</td>
+<td align="left">26,153</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:Long-Table">Table 5.2: </span>Long Format</caption>
+<thead>
+<tr class="header">
+<th align="left">created_at</th>
+<th align="left">source</th>
+<th align="right">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2020-05-11</td>
+<td align="left">total_sentiment</td>
+<td align="right">1.2900409</td>
+</tr>
+<tr class="even">
+<td align="left">2020-05-12</td>
+<td align="left">total_sentiment</td>
+<td align="right">-0.2150068</td>
+</tr>
+<tr class="odd">
+<td align="left">2020-05-13</td>
+<td align="left">total_sentiment</td>
+<td align="right">0.4120964</td>
+</tr>
+<tr class="even">
+<td align="left">2020-05-14</td>
+<td align="left">total_sentiment</td>
+<td align="right">-0.2150068</td>
+</tr>
+<tr class="odd">
+<td align="left">2020-05-15</td>
+<td align="left">total_sentiment</td>
+<td align="right">0.7883583</td>
+</tr>
+<tr class="even">
+<td align="left">2020-05-18</td>
+<td align="left">total_sentiment</td>
+<td align="right">-1.8454751</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="plots" class="section level2">
+<h2><span class="header-section-number">5.2</span> Plots</h2>
+<p>The distribution of the values is usually insightful. You may discover that there is little variation (which usually makes the variable ‘boring’), that the distribution is normal, has extremes, or has multiple humps. Any of these results may help shape how you think about examining the relationships.</p>
+<p>Note that I have turned warning off for this chunk. This option suppresses warnings from appearing on the rendered page / book.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(final_data_long) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">x =</span> value, <span class="dt">group =</span> source, <span class="dt">fill =</span> source), <span class="dt">color =</span> <span class="st">&#39;grey&#39;</span>, <span class="dt">alpha=</span><span class="fl">0.4</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Distribution of Values&quot;</span>) <span class="op">+</span>
+<span class="co">#     subtitle = &quot;Sentiment Intensify by Tripwire Change Intensity&quot;) +</span>
+<span class="st">  </span><span class="kw">bbc_style</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;gold&quot;</span>, <span class="st">&quot;cyan1&quot;</span>, <span class="st">&quot;coral1&quot;</span>),
+                       <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Gold&quot;</span>, <span class="st">&quot;Total Sentiment&quot;</span>, <span class="st">&quot;Tripwire Daily Change&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>()) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>()) </code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:Density"></span>
+<img src="_main_files/figure-html/Density-1.png" alt="Distribution of Values" width="672" />
+<p class="caption">
+Figure 5.1: Distribution of Values
+</p>
+</div>
+<p>Next, let’s compare the changes over time using a line graph. Do we see values go up together, change in inverse, or seem to have no pattern at all? We use the wide data format, <code>scale</code> within the code, and assign our own legend via the <code>scale_colour_manual</code> command.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(final_data, <span class="kw">aes</span>(<span class="dt">x =</span> created_at)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> <span class="kw">scale</span>(gold_morning_price), <span class="dt">color=</span><span class="st">&quot;Gold&quot;</span>), <span class="dt">lty =</span> <span class="dv">1</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> <span class="kw">scale</span>(total_sentiment), <span class="dt">color=</span><span class="st">&quot;Sentiment&quot;</span>), <span class="dt">lty =</span> <span class="dv">1</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> <span class="kw">scale</span>(TRIP.Diff), <span class="dt">color=</span><span class="st">&quot;Tripwire&quot;</span>), <span class="dt">lty =</span> <span class="dv">1</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>, <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">color=</span><span class="st">&quot;#333333&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">bbc_style</span>() <span class="op">+</span><span class="st"> </span><span class="co"># any changes to the bbc_style themes must be called after the bbc_style() call</span>
+<span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dt">Gold =</span> <span class="st">&quot;gold&quot;</span>, <span class="dt">Sentiment =</span> <span class="st">&quot;cyan1&quot;</span>, <span class="dt">Tripwire =</span> <span class="st">&quot;coral1&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>()) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Gold vs Drivers&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;sentiment and Tripwire Daily Stock Price Differences&quot;</span>) <span class="co"># You may receive warning messages indicating the Arial font is not available - that is OK</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:Line-Graph"></span>
+<img src="_main_files/figure-html/Line-Graph-1.png" alt="Values over Time" width="672" />
+<p class="caption">
+Figure 5.2: Values over Time
+</p>
+</div>
+<p>Note: The use of the legend above does not follow normal programming convention. We can use the long data and then use <code>aes(color = TYPE)</code> to autogenerate a legend.<code>scale</code> is no longer helpful when used within ggplot2 as the full range of values across variables is in a single column, so scaling must be done in advance. Code using the long format to generate the same plot is provided (but not executed) below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(final_data_long, <span class="kw">aes</span>(<span class="dt">x =</span> created_at)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> value, <span class="dt">color =</span> source), <span class="dt">lty =</span> <span class="dv">1</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>, <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">color=</span><span class="st">&quot;#333333&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">bbc_style</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;gold&quot;</span>, <span class="st">&quot;cyan1&quot;</span>, <span class="st">&quot;coral1&quot;</span>),
+                       <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Gold&quot;</span>, <span class="st">&quot;Total Sentiment&quot;</span>, <span class="st">&quot;Tripwire Daily Change&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>()) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Gold vs Drivers&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;sentiment and Tripwire Daily Stock Price Differences&quot;</span>) </code></pre></div>
+<p>A bubbleplot (a scatterplot with glyph sizes scaled according to a third variable) is another popular way to visually communicate relationships. In a scatterplot a variable is rendered in increasing order on the X axis and a second in increasing order on the Y axis. We again are looking for patterns - does a higher value of one variable</p>
+<p>We will use a combination of values for each bubbleplot axis. For the X axis, we will take the sentiment score and multiple it by the number of tweets for that date (as a measure of breadth of sentiment intensity). For the Y axis, we will take the difference between the high and low values on a particular date and multiple it by the trading volume, again as a measure of breadth of the market’s opinion of Tripwire. We will plot the price of gold for each date for the size of the glyph representing the X and Y coordinates. Finally, we impose a line to trace the change over the graph. Note that we do not use the date field. The first glyph may be from the last date in the data set - unlike the line graph, there is no longitudinal measures in the graph.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> final_data, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">scale</span>(total_sentiment<span class="op">*</span>n), 
+                              <span class="dt">y =</span> <span class="kw">scale</span>(TRIP.Diff<span class="op">*</span>TRIP.Volume), 
+                              <span class="dt">size =</span> gold_morning_price)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">linetype =</span> <span class="dv">5</span>, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;gold&quot;</span>, <span class="dt">shape =</span> <span class="dv">21</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>, <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">color=</span><span class="st">&quot;#333333&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">paste0</span>(<span class="st">&quot;$&quot;</span>, <span class="kw">round</span>(gold_morning_price,<span class="dv">0</span>))), <span class="dt">size =</span> <span class="dv">6</span>, <span class="dt">nudge_x =</span> <span class="fl">0.12</span>, <span class="dt">nudge_y =</span> <span class="op">-</span><span class="fl">0.07</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">bbc_style</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">18</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>()) <span class="op">+</span><span class="st"> </span><span class="co"># override bbc_style axis title supression</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Sentiment * Social Media Activity&quot;</span>, 
+       <span class="dt">y =</span> <span class="st">&quot;Tripwire Daily Change * Volume&quot;</span>) <span class="op">+</span>
+<span class="co">#  xlim(c(-1.5, 1.5)) +</span>
+<span class="co">#  ylim(c(-1.5, 1.5)) +</span>
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">size =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Gold vs Drivers&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Sentiment Intensify by Tripwire Change Intensity&quot;</span>) </code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:Bubbleplot"></span>
+<img src="_main_files/figure-html/Bubbleplot-1.png" alt="Bubbleplot of Values" width="672" />
+<p class="caption">
+Figure 5.3: Bubbleplot of Values
+</p>
+</div>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-bbplot">
+<p>Stylianou, Nassos, Will william.dahlgreen@bbc.co.uk Dahlgreen, Robert robert.cuffe@bbc.co.uk Cuffe, Tom Calver, and Ransome Mpini. 2020. <em>Bbplot: MAKING Ggplot Graphics in Bbc News Style</em>.</p>
+</div>
+<div id="ref-R-ggplot2">
+<p>Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2020. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2" class="uri">https://CRAN.R-project.org/package=ggplot2</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="comb.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="publishing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

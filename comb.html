@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Combining Data | Neeley BIS Data Science Competition Summer 2020</title>
+  <meta name="description" content="Data Science Competition, 2020." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Combining Data | Neeley BIS Data Science Competition Summer 2020" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Data Science Competition, 2020." />
+  <meta name="github-repo" content="kellyslaughter-tcu/BIS-Data-Science-Competition-2020" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Combining Data | Neeley BIS Data Science Competition Summer 2020" />
+  
+  <meta name="twitter:description" content="Data Science Competition, 2020." />
+  
+
+<meta name="author" content="Kelly T Slaughter" />
+
+
+<meta name="date" content="2020-05-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="txt.html"/>
+<link rel="next" href="viz.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a></li>
+<li class="chapter" data-level="2" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>2</b> Obtaining External Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="data.html"><a href="data.html#financial-data"><i class="fa fa-check"></i><b>2.1</b> Financial Data</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="data.html"><a href="data.html#commodity-prices"><i class="fa fa-check"></i><b>2.1.1</b> Commodity Prices</a></li>
+<li class="chapter" data-level="2.1.2" data-path="data.html"><a href="data.html#stock-prices"><i class="fa fa-check"></i><b>2.1.2</b> Stock Prices</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data.html"><a href="data.html#social-media-data"><i class="fa fa-check"></i><b>2.2</b> Social Media Data</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="data.html"><a href="data.html#twitter"><i class="fa fa-check"></i><b>2.2.1</b> Twitter</a></li>
+<li class="chapter" data-level="2.2.2" data-path="data.html"><a href="data.html#reddit"><i class="fa fa-check"></i><b>2.2.2</b> Reddit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="data.html"><a href="data.html#economic-data"><i class="fa fa-check"></i><b>2.3</b> Economic Data</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="data.html"><a href="data.html#unemployment-insurance"><i class="fa fa-check"></i><b>2.3.1</b> Unemployment Insurance</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="txt.html"><a href="txt.html"><i class="fa fa-check"></i><b>3</b> Text Analysis</a></li>
+<li class="chapter" data-level="4" data-path="comb.html"><a href="comb.html"><i class="fa fa-check"></i><b>4</b> Combining Data</a></li>
+<li class="chapter" data-level="5" data-path="viz.html"><a href="viz.html"><i class="fa fa-check"></i><b>5</b> Visualization</a><ul>
+<li class="chapter" data-level="5.1" data-path="viz.html"><a href="viz.html#data-prep"><i class="fa fa-check"></i><b>5.1</b> Data Prep</a></li>
+<li class="chapter" data-level="5.2" data-path="viz.html"><a href="viz.html#plots"><i class="fa fa-check"></i><b>5.2</b> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a><ul>
+<li class="chapter" data-level="6.1" data-path="publishing.html"><a href="publishing.html#bibliography"><i class="fa fa-check"></i><b>6.1</b> Bibliography</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Neeley BIS Data Science Competition<br/>Summer 2020</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="comb" class="section level1">
+<h1><span class="header-section-number">4</span> Combining Data</h1>
+<p>The following data sets are now available:</p>
+<ul>
+<li><strong>London_Gold_AM</strong>: Daily price of gold</li>
+<li><strong>sentiment_data_by_date</strong>: Daily Twitter and Reddit social data</li>
+<li><strong>TRIP_wide</strong>: Daily Tripwire stock price from last two weeks</li>
+<li><strong>BEA_tibble_unemployment_ins</strong>: First three months of 2020 unemployment insurance</li>
+</ul>
+<p>As we combined the Twitter and Reddit data sets in <a href="txt.html#txt">3</a>, we will want to combine all data sets into a single set; this is often the most convenient way to develop visualizations. We are analyzing by date, and each data set includes a date which, conveniently, is in the same format of YYYY-MM-DD.</p>
+<p>However, one theory might be that the social data sentiments precede changes to the gold prices. In other words, when we compare data, we want to look at Twitter as of Monday to examine the gold price on Tuesday. One convenient way to support this goal is simply to subtract one from the social media <code>created_at</code> date (a better way may be to add a new date field to all the data sets and adjust the values as wished).</p>
+<p>We also rename the variable storing the price of gold, <code>USD (AM)</code>, as <code>gold_morning_price</code>.</p>
+<p>We use <code>inner_join</code> again, first combining <code>sentiment_data_by_date</code> and <code>London_Gold_AM</code> into an <code>all_data</code> data set, then through another <code>inner_join</code> combining the <code>all_data</code> with the data set <code>TRIP_wide</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sentiment_data_by_date<span class="op">$</span>created_at &lt;-<span class="st"> </span>sentiment_data_by_date<span class="op">$</span>created_at <span class="op">-</span><span class="dv">1</span> <span class="co"># Alter date to day before as we assume social media is a leading indicator</span>
+London_Gold_AM &lt;-<span class="st"> </span>London_Gold_AM <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="dt">gold_morning_price =</span> <span class="st">&#39;USD (AM)&#39;</span>)
+
+all_data &lt;-<span class="st"> </span><span class="kw">inner_join</span>(sentiment_data_by_date, London_Gold_AM, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;created_at&quot;</span> =<span class="st"> &quot;Date&quot;</span>)) <span class="co"># &#39;created_at&#39; will be the preserved key</span>
+all_data &lt;-<span class="st"> </span><span class="kw">inner_join</span>(all_data, TRIP_wide, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;created_at&quot;</span> =<span class="st"> &quot;index&quot;</span>))</code></pre></div>
+<p>The unemployment insurance is reported on a monthly basis, so we do not have a row to row match by date. Let’s assume a three-month lag between the ‘macro’ condition of unemployment and the daily prices and sentiment. Thus, gold prices in May are associated with unemployment insurance in February. Thus, every price row by date in May will have the same BEA value from February.</p>
+<p>We need matching values across the data sets for successfully joining the data. To do so, we will ‘extract’ the month as an integer from the date fields. We will use the <code>str_sub</code> command courtesy of the <code>stringr</code><span class="citation">(Wickham <a href="#ref-R-stringr">2019</a><a href="#ref-R-stringr">b</a>)</span> package against the BEA data (and then add three to synch February with May).</p>
+<p>As we are using an <code>inner_join</code>, any unmatched rows are lost. So, if we did not have any February dates in the BEA data set, we would have no data from the join. Keep that in mind as you chose your own lagging and leading relationships.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stringr)
+<span class="kw">library</span>(lubridate)
+
+BEA_tibble_unemployment_ins &lt;-<span class="st"> </span><span class="kw">mutate</span>(BEA_tibble_unemployment_ins, <span class="dt">effect_month =</span> <span class="kw">as.integer</span>(<span class="kw">str_sub</span>(TimePeriod, 6L, 7L)) <span class="op">+</span><span class="st"> </span>3L) 
+<span class="co"># TimePeriod is not a date variable, it is a string (char). str_sub lets us extract the month</span>
+<span class="co"># as.integer turns the extracted month into a number. we then add three to the month to allow a match as a leading indicator</span>
+all_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(all_data, <span class="dt">effect_month =</span> <span class="kw">as.integer</span>(<span class="kw">month</span>(created_at))) <span class="co"># Change month to integer to allow join</span>
+
+all_data &lt;-<span class="st"> </span><span class="kw">inner_join</span>(all_data, BEA_tibble_unemployment_ins, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;effect_month&quot;</span> =<span class="st"> &quot;effect_month&quot;</span>)) <span class="co"># Adding the by is not necessary as the only common field between the two data sets is effect_date, but as data sets evolve, fields may be added that could inadvertently affect the join</span>
+
+<span class="co"># Let&#39;s take a subset of only variables we plan to use</span>
+final_data &lt;-<span class="st"> </span><span class="kw">select</span>(all_data, created_at, n, total_sentiment, negative_words, Paris_count, gold_morning_price, TRIP.Diff, TRIP.Volume, DataValue)</code></pre></div>
+<p>The final data set has one row for each word in each tweet or reddit post with the (repeated) associated gold prices and stock price changes for Tripwire as provided in Table <a href="comb.html#tab:Final-Data-Table">4.1</a>.</p>
+<table>
+<caption><span id="tab:Final-Data-Table">Table 4.1: </span>Final Data Set</caption>
+<thead>
+<tr class="header">
+<th align="left">created_at</th>
+<th align="right">n</th>
+<th align="right">total_sentiment</th>
+<th align="right">negative_words</th>
+<th align="right">Paris_count</th>
+<th align="right">gold_morning_price</th>
+<th align="right">TRIP.Diff</th>
+<th align="right">TRIP.Volume</th>
+<th align="left">DataValue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2020-05-11</td>
+<td align="right">26</td>
+<td align="right">64</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">1698.80</td>
+<td align="right">1.110001</td>
+<td align="right">4766500</td>
+<td align="left">26,153</td>
+</tr>
+<tr class="even">
+<td align="left">2020-05-12</td>
+<td align="right">26</td>
+<td align="right">40</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">1703.45</td>
+<td align="right">0.649999</td>
+<td align="right">3743300</td>
+<td align="left">26,153</td>
+</tr>
+<tr class="odd">
+<td align="left">2020-05-13</td>
+<td align="right">32</td>
+<td align="right">50</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">1699.85</td>
+<td align="right">1.480000</td>
+<td align="right">4786100</td>
+<td align="left">26,153</td>
+</tr>
+<tr class="even">
+<td align="left">2020-05-14</td>
+<td align="right">28</td>
+<td align="right">40</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">1716.40</td>
+<td align="right">1.140000</td>
+<td align="right">5610700</td>
+<td align="left">26,153</td>
+</tr>
+<tr class="odd">
+<td align="left">2020-05-15</td>
+<td align="right">40</td>
+<td align="right">56</td>
+<td align="right">8</td>
+<td align="right">0</td>
+<td align="right">1734.85</td>
+<td align="right">0.470000</td>
+<td align="right">2939200</td>
+<td align="left">26,153</td>
+</tr>
+<tr class="even">
+<td align="left">2020-05-18</td>
+<td align="right">46</td>
+<td align="right">14</td>
+<td align="right">20</td>
+<td align="right">0</td>
+<td align="right">1756.90</td>
+<td align="right">2.790001</td>
+<td align="right">8243600</td>
+<td align="left">26,153</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-stringr">
+<p>Wickham, Hadley. 2019b. <em>Stringr: Simple, Consistent Wrappers for Common String Operations</em>. <a href="https://CRAN.R-project.org/package=stringr" class="uri">https://CRAN.R-project.org/package=stringr</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="txt.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="viz.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

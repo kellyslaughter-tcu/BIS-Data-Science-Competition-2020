@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Text Analysis | Neeley BIS Data Science Competition Summer 2020</title>
+  <meta name="description" content="Data Science Competition, 2020." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Text Analysis | Neeley BIS Data Science Competition Summer 2020" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Data Science Competition, 2020." />
+  <meta name="github-repo" content="kellyslaughter-tcu/BIS-Data-Science-Competition-2020" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Text Analysis | Neeley BIS Data Science Competition Summer 2020" />
+  
+  <meta name="twitter:description" content="Data Science Competition, 2020." />
+  
+
+<meta name="author" content="Kelly T Slaughter" />
+
+
+<meta name="date" content="2020-05-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data.html"/>
+<link rel="next" href="comb.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a></li>
+<li class="chapter" data-level="2" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>2</b> Obtaining External Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="data.html"><a href="data.html#financial-data"><i class="fa fa-check"></i><b>2.1</b> Financial Data</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="data.html"><a href="data.html#commodity-prices"><i class="fa fa-check"></i><b>2.1.1</b> Commodity Prices</a></li>
+<li class="chapter" data-level="2.1.2" data-path="data.html"><a href="data.html#stock-prices"><i class="fa fa-check"></i><b>2.1.2</b> Stock Prices</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data.html"><a href="data.html#social-media-data"><i class="fa fa-check"></i><b>2.2</b> Social Media Data</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="data.html"><a href="data.html#twitter"><i class="fa fa-check"></i><b>2.2.1</b> Twitter</a></li>
+<li class="chapter" data-level="2.2.2" data-path="data.html"><a href="data.html#reddit"><i class="fa fa-check"></i><b>2.2.2</b> Reddit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="data.html"><a href="data.html#economic-data"><i class="fa fa-check"></i><b>2.3</b> Economic Data</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="data.html"><a href="data.html#unemployment-insurance"><i class="fa fa-check"></i><b>2.3.1</b> Unemployment Insurance</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="txt.html"><a href="txt.html"><i class="fa fa-check"></i><b>3</b> Text Analysis</a></li>
+<li class="chapter" data-level="4" data-path="comb.html"><a href="comb.html"><i class="fa fa-check"></i><b>4</b> Combining Data</a></li>
+<li class="chapter" data-level="5" data-path="viz.html"><a href="viz.html"><i class="fa fa-check"></i><b>5</b> Visualization</a><ul>
+<li class="chapter" data-level="5.1" data-path="viz.html"><a href="viz.html#data-prep"><i class="fa fa-check"></i><b>5.1</b> Data Prep</a></li>
+<li class="chapter" data-level="5.2" data-path="viz.html"><a href="viz.html#plots"><i class="fa fa-check"></i><b>5.2</b> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a><ul>
+<li class="chapter" data-level="6.1" data-path="publishing.html"><a href="publishing.html#bibliography"><i class="fa fa-check"></i><b>6.1</b> Bibliography</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Neeley BIS Data Science Competition<br/>Summer 2020</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="txt" class="section level1">
+<h1><span class="header-section-number">3</span> Text Analysis</h1>
+<p>In this chapter we will perform simple text analysis - count and sentiment by word. Detailed guidance for text mining is provided at <a href="https://www.tidytextmining.com/tidytext.html">Text Mining with R</a><span class="citation">(Xie <a href="#ref-xie2020">2020</a><a href="#ref-xie2020">a</a>)</span>. We first need to tokenize the text (i.e., break the text apart into smaller units for analysis). We will tokenize by word. Instead of tokenizing by word, you can tokenize by n-gram, e.g., pairs, triplets, etc. of words via <code>vacation_tweets_tt2 &lt;- vacation_tweets_df %&gt;% unnest_tokens(bigram, text, token = &quot;ngrams&quot;, n = 2)</code>. We will use the command <code>unnest_tokens</code> from the <code>tidytext</code><span class="citation">(Robinson and Silge <a href="#ref-R-tidytext">2020</a>)</span> package to do our work.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidytext)
+
+<span class="co"># Create tokens (in our case, each word becomes a distinct value)</span>
+vacation_tweets_tt &lt;-<span class="st"> </span>vacation_tweets_df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest_tokens</span>(word, text) <span class="co"># How do words with special characters like hashtags tokenized?</span>
+vacation_reddit_tt &lt;-<span class="st"> </span>reddit_data[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest_tokens</span>(word, comment) </code></pre></div>
+<p>stop_words include:</p>
+<ul>
+<li>a</li>
+<li>about</li>
+<li>actually</li>
+</ul>
+<p>and so forth. A data set of common stop words is included in the <code>tidytext</code> package. Below we use the <code>dplyr</code> command <code>anti_join</code> that removes all word tokens appearing in the stop_words list.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vacation_tweets_tt &lt;-<span class="st"> </span>vacation_tweets_tt <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">anti_join</span>(stop_words, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;word&quot;</span> =<span class="st"> &quot;word&quot;</span>)) <span class="co"># anti_join is a dplyr function</span>
+vacation_reddit_tt &lt;-<span class="st"> </span>vacation_tweets_tt <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">anti_join</span>(stop_words, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;word&quot;</span> =<span class="st"> &quot;word&quot;</span>)) </code></pre></div>
+<blockquote>
+<p>Technical Note: R is a functional(-like?) programming language (versus imperative programming, which is typically taught in school). A programming principle consistent with functional programming is immutability. Some would consider the code above poor practice as I am using the same variable on both sides of the equation versus creating a new variable, <code>vacation_tweets_tt</code>.</p>
+</blockquote>
+<p>Our analysis will be performed by date, that is, the field common to gold prices, stock prices, and social data is date. The date fields in the social data include time stamps - too granular of data for our purposes. We first convert the <code>created_at</code> from a date/timestamp to date field via the <code>lubridate</code><span class="citation">(Spinu, Grolemund, and Wickham <a href="#ref-R-lubridate">2020</a>)</span> package function <code>as_date</code>. We then call the <code>dplyr</code> command <code>group_by</code> to aggregate the rows by date, then <code>count</code> the number of occurrences of each word by date.</p>
+<p>Note the <code>%&gt;%</code> - this is a piping syntax where output of the previous command becomes input for the next command.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate) <span class="co"># for the function as_date</span>
+
+vacation_tweets_tt<span class="op">$</span>created_at &lt;-<span class="st"> </span><span class="kw">as_date</span>(vacation_tweets_tt<span class="op">$</span>created_at) <span class="co"># By date, drop time stamp so we can generate a meaningful count by time</span>
+tweet_word_count_by_date &lt;-<span class="st"> </span>vacation_tweets_tt <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(created_at) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(word, <span class="dt">sort =</span> <span class="ot">TRUE</span>) 
+<span class="kw">ungroup</span>(tweet_word_count_by_date)</code></pre></div>
+<pre><code>## # A tibble: 1,444 x 3
+##    created_at word          n
+##    &lt;date&gt;     &lt;chr&gt;     &lt;int&gt;
+##  1 2020-05-13 caribbean    20
+##  2 2020-05-19 vacation     20
+##  3 2020-05-13 vacation     19
+##  4 2020-05-16 vacation     18
+##  5 2020-05-19 caribbean    18
+##  6 2020-05-12 https        16
+##  7 2020-05-12 t.co         16
+##  8 2020-05-14 https        16
+##  9 2020-05-14 t.co         16
+## 10 2020-05-16 https        16
+## # ... with 1,434 more rows</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vacation_reddit_tt<span class="op">$</span>created_at &lt;-<span class="st"> </span><span class="kw">as_date</span>(vacation_reddit_tt<span class="op">$</span>created_at) 
+reddit_word_count_by_date &lt;-<span class="st"> </span>vacation_reddit_tt <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(created_at) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(word, <span class="dt">sort =</span> <span class="ot">TRUE</span>) 
+<span class="kw">ungroup</span>(reddit_word_count_by_date)</code></pre></div>
+<pre><code>## # A tibble: 1,444 x 3
+##    created_at word          n
+##    &lt;date&gt;     &lt;chr&gt;     &lt;int&gt;
+##  1 2020-05-13 caribbean    20
+##  2 2020-05-19 vacation     20
+##  3 2020-05-13 vacation     19
+##  4 2020-05-16 vacation     18
+##  5 2020-05-19 caribbean    18
+##  6 2020-05-12 https        16
+##  7 2020-05-12 t.co         16
+##  8 2020-05-14 https        16
+##  9 2020-05-14 t.co         16
+## 10 2020-05-16 https        16
+## # ... with 1,434 more rows</code></pre>
+<p>Let’s combine the resulting Twitter and Reddit tokenized data. To keep track of the source, we will add a field called <code>source</code> with a value of <em>Twitter</em> or <em>Reddit</em> as appropriate (note that I use two different coding techniques to accomplish the same result). As the fields across the two sources are identical (because of the prior work narrowing the number of variables), we can simply append one data set to the other with a row bind command, <code>rbind</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tweet_word_count_by_date &lt;-<span class="st"> </span><span class="kw">mutate</span>(tweet_word_count_by_date, <span class="dt">source =</span> <span class="st">&quot;Twitter&quot;</span>) <span class="co"># Adding field via mutate in dplyr</span>
+reddit_word_count_by_date<span class="op">$</span>source &lt;-<span class="st"> &quot;Reddit&quot;</span> <span class="co"># Adding field using base R</span>
+
+social_data_count_by_date_word &lt;-<span class="st"> </span><span class="kw">rbind</span>(tweet_word_count_by_date, reddit_word_count_by_date)</code></pre></div>
+<p>Sentiment analysis, that is, are the social media positive or negative expressions, is popular text analysis approach. Those in the text mining domain use lexicons - lists of words with ‘assigned emotion’ including: scores, negative/positive ratings, intensity, and even subtlety (e.g., negative as fear vs. negative as anger). Lexicons available to use include <em>bing</em>, <em>afinn</em>, <em>loughran</em>, and <em>nrc</em>. We will use <em>afinn</em> from the <code>textdata</code><span class="citation">(Hvitfeldt <a href="#ref-R-textdata">2020</a>)</span> package, which stores for each word in its data set a score from -5 (very negative) to 5 (very positive). To see the list, enter <code>get_sentiments(&quot;afinn&quot;)</code> in the Console prompt.</p>
+<p>Our goal is to create one row for each date that reflects the opinions of the day based on the screened data. For each date, we will create an attribute for:</p>
+<ul>
+<li>number of words</li>
+<li>total sentiment</li>
+<li>count of negative words</li>
+<li>number of times the word ‘Paris’ was used</li>
+</ul>
+<p>We use an inner join to combine the two sets. Keep in mind that using an inner join means that any word in the social data data set unrecognized in the <em>afinn</em> data set will be dropped. You may want to keep these words - they may even be the most meaningful. For instance, we searched Twitter by the word <em>Caribbean</em> but this word in not in <em>afinn</em>. A simple way to accomplish this goal is to create your own <em>afinn</em> data set, e.g., <code>afinn_custom &lt;- rbind(afinn, my_afinn)</code> where <code>my_afinn</code> is a custom data set of words with your sentiment rankings of the words, as shown in the code chunk below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(textdata) <span class="co"># Supports afinn, (-5 to 5), bing, loughran, and nrc lexicons</span>
+
+my_afinn &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">word =</span> <span class="kw">c</span>(<span class="st">&#39;Caribbean&#39;</span>, <span class="st">&#39;vacation&#39;</span>, <span class="st">&#39;beach&#39;</span>), <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)) 
+afinn_custom &lt;-<span class="st"> </span><span class="kw">rbind</span>(my_afinn, <span class="kw">get_sentiments</span>(<span class="st">&quot;afinn&quot;</span>))
+
+social_data_count_by_date_word &lt;-<span class="st"> </span><span class="kw">inner_join</span>(social_data_count_by_date_word, afinn_custom) <span class="co"># add the afinn variable of value</span>
+
+sentiment_data_by_date &lt;-<span class="st"> </span>social_data_count_by_date_word <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">                          </span><span class="kw">group_by</span>(created_at) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">                          </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(),                                    <span class="co"># social media count</span>
+                                    <span class="dt">total_sentiment =</span> <span class="kw">sum</span>(value),               <span class="co"># sum of sentiment</span>
+                                    <span class="dt">negative_words =</span> <span class="kw">length</span>(value[value <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>]),  <span class="co"># occurences of negative workds</span>
+                                    <span class="dt">Paris_count =</span> <span class="kw">length</span>(word[word <span class="op">==</span><span class="st"> &#39;Paris&#39;</span>]) <span class="co"># occurences of the word &#39;Paris&#39;</span>
+                                    )</code></pre></div>
+<p>While Twitter only provides a week or so of data, you could collect and save the data over the course of the competition. You could save the data to your PC periodically via <code>saveRDS(sentiment_data_by_date, paste0(&quot;sentiment_data_by_date_&quot;, Sys.Date()))</code>. When you are ready to use the combined data set, open each RDS file via <code>openRDS(&lt;name of RDF file&gt;)</code>, combine them back to the <code>sentiment_data_by_date</code> tibble via <code>rbind</code>, then remove duplicates via the command <code>sentiment_data_by_date &lt;- distinct(sentiment_data_by_date)</code> (from the <code>dplyr</code> package).</p>
+<p>As you work through your text analysis, consider:</p>
+<ul>
+<li>Do you want to group by date? Or perhaps date and user?</li>
+<li>Do you want to analyze words or sentences?</li>
+<li>Do you need some additional preprocessing, e.g., remove certain words via <code>custom_stopwords &lt;- tibble(word = c(&quot;retweet&quot;, &quot;covid&quot;, &quot;etc&quot;))</code></li>
+</ul>
+
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-textdata">
+<p>Hvitfeldt, Emil. 2020. <em>Textdata: Download and Load Various Text Datasets</em>. <a href="https://CRAN.R-project.org/package=textdata" class="uri">https://CRAN.R-project.org/package=textdata</a>.</p>
+</div>
+<div id="ref-R-tidytext">
+<p>Robinson, David, and Julia Silge. 2020. <em>Tidytext: Text Mining Using ’Dplyr’, ’Ggplot2’, and Other Tidy Tools</em>. <a href="https://CRAN.R-project.org/package=tidytext" class="uri">https://CRAN.R-project.org/package=tidytext</a>.</p>
+</div>
+<div id="ref-R-lubridate">
+<p>Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2020. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://CRAN.R-project.org/package=lubridate" class="uri">https://CRAN.R-project.org/package=lubridate</a>.</p>
+</div>
+<div id="ref-xie2020">
+<p>Xie, Yihui. 2020a. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. 1st ed. Self Published: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/bookdown/" class="uri">https://bookdown.org/yihui/bookdown/</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="comb.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

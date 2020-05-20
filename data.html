@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Obtaining External Data | Neeley BIS Data Science Competition Summer 2020</title>
+  <meta name="description" content="Data Science Competition, 2020." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Obtaining External Data | Neeley BIS Data Science Competition Summer 2020" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Data Science Competition, 2020." />
+  <meta name="github-repo" content="kellyslaughter-tcu/BIS-Data-Science-Competition-2020" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Obtaining External Data | Neeley BIS Data Science Competition Summer 2020" />
+  
+  <meta name="twitter:description" content="Data Science Competition, 2020." />
+  
+
+<meta name="author" content="Kelly T Slaughter" />
+
+
+<meta name="date" content="2020-05-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="txt.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a></li>
+<li class="chapter" data-level="2" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>2</b> Obtaining External Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="data.html"><a href="data.html#financial-data"><i class="fa fa-check"></i><b>2.1</b> Financial Data</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="data.html"><a href="data.html#commodity-prices"><i class="fa fa-check"></i><b>2.1.1</b> Commodity Prices</a></li>
+<li class="chapter" data-level="2.1.2" data-path="data.html"><a href="data.html#stock-prices"><i class="fa fa-check"></i><b>2.1.2</b> Stock Prices</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data.html"><a href="data.html#social-media-data"><i class="fa fa-check"></i><b>2.2</b> Social Media Data</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="data.html"><a href="data.html#twitter"><i class="fa fa-check"></i><b>2.2.1</b> Twitter</a></li>
+<li class="chapter" data-level="2.2.2" data-path="data.html"><a href="data.html#reddit"><i class="fa fa-check"></i><b>2.2.2</b> Reddit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="data.html"><a href="data.html#economic-data"><i class="fa fa-check"></i><b>2.3</b> Economic Data</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="data.html"><a href="data.html#unemployment-insurance"><i class="fa fa-check"></i><b>2.3.1</b> Unemployment Insurance</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="txt.html"><a href="txt.html"><i class="fa fa-check"></i><b>3</b> Text Analysis</a></li>
+<li class="chapter" data-level="4" data-path="comb.html"><a href="comb.html"><i class="fa fa-check"></i><b>4</b> Combining Data</a></li>
+<li class="chapter" data-level="5" data-path="viz.html"><a href="viz.html"><i class="fa fa-check"></i><b>5</b> Visualization</a><ul>
+<li class="chapter" data-level="5.1" data-path="viz.html"><a href="viz.html#data-prep"><i class="fa fa-check"></i><b>5.1</b> Data Prep</a></li>
+<li class="chapter" data-level="5.2" data-path="viz.html"><a href="viz.html#plots"><i class="fa fa-check"></i><b>5.2</b> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a><ul>
+<li class="chapter" data-level="6.1" data-path="publishing.html"><a href="publishing.html#bibliography"><i class="fa fa-check"></i><b>6.1</b> Bibliography</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Neeley BIS Data Science Competition<br/>Summer 2020</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data" class="section level1">
+<h1><span class="header-section-number">2</span> Obtaining External Data</h1>
+<p>We examine economic and social measures that vary with the price of gold. We speculate that good economic information results in lower gold prices and vice versa, under the premise that gold is seen as a store of value in uncertain times. We track changes in the price of gold to changes in the daily price of Tripwire (as unexpected economic news may curtail or encourage travel), monthly unemployment insurance, Tweets about vacations, and Reddit posts from the Stock Picks subreddit that reference the term ‘gold.’ To obtain this data via:</p>
+<ul>
+<li>The R package <code>Quandl</code><span class="citation">(Raymond McTaggart, Gergely Daroczi, and Clement Leung <a href="#ref-R-Quandl">2019</a>)</span> for commodity data (i.e., gold prices)</li>
+<li>The R package <code>quantmod</code><span class="citation">(Ryan and Ulrich <a href="#ref-R-quantmod">2020</a>)</span> for stock data (i.e., Tripwire)</li>
+<li>The R package <code>rtweet</code><span class="citation">(Kearney <a href="#ref-R-rtweet">2020</a>)</span> for Twitter data and the R package <code>RedditExtractoR</code><span class="citation">(Rivera <a href="#ref-R-RedditExtractoR">2019</a>)</span> for Reddit data</li>
+<li>The R package <code>httr</code><span class="citation">(Wickham <a href="#ref-R-httr">2019</a>)</span> for the Bureau of Economic Analysis data (i.e., unemployment insurance)</li>
+</ul>
+<p>Other sources of data ‘friendly’ to R can be found at [ComputerWorld R Packages for Data] (<a href="https://www.computerworld.com/article/3109890/these-r-packages-import-sports-weather-stock-data-and-more.html" class="uri">https://www.computerworld.com/article/3109890/these-r-packages-import-sports-weather-stock-data-and-more.html</a>).</p>
+<p>Other general sources of data available through API’s can be found at <a href="https://www.programmableweb.com/apis/directory" class="uri">https://www.programmableweb.com/apis/directory</a>.</p>
+<div id="financial-data" class="section level2">
+<h2><span class="header-section-number">2.1</span> Financial Data</h2>
+<hr>
+<div id="commodity-prices" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Commodity Prices</h3>
+<p>Quandl is one of the most popular data sources that offers an API for data. Data sources available via API include:<a href="https://blog.quandl.com/api-for-commodity-data">Commodity Prices</a>, <a href="https://blog.quandl.com/api-for-stock-data">Stock Prices</a>, <a href="https://blog.quandl.com/api-for-currency-data">Currency Prices</a>, and <a href="https://blog.quandl.com/api-for-bitcoin-data">Bitcoin</a></p>
+<p>Create an account at <a href="https://www.quandl.com/sign-up" class="uri">https://www.quandl.com/sign-up</a> if you plan on using Quandl calls more than fifty times a day - Quandl will provide an API key.</p>
+<p>We use the function <code>Quandl</code> available after the <code>Quandl</code> library is loaded to obtain gold prices from April 15 to the most recent date. Note that the api_key is set to <code>Sys.getenv(&quot;QUANDL_KEY&quot;)</code>. It is bad practice to include the key in the code, so I have loaded the API key provided by Quandl into a systems variable stored in the project file <code>.Renviron</code> and retrieve it for use from the systems variables. <code>.Renviron</code> can be maintained via the <code>usethis</code> package using the command <code>usethis::edit_r_makevars()</code>).</p>
+<p><em>Warning: Most API’s have limits for use (by frequency, volume, rows, etc.). Sometimes your data will not appear to change after calls due to this limitation.</em></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Quandl)      
+
+London_Gold_AM =<span class="st"> </span><span class="kw">Quandl</span>(<span class="st">&quot;LBMA/GOLD&quot;</span>, <span class="dt">start_date=</span><span class="st">&quot;2020-04-15&quot;</span>, <span class="dt">api_key =</span> <span class="kw">Sys.getenv</span>(<span class="st">&quot;QUANDL_KEY&quot;</span>))</code></pre></div>
+<p>The data is returned in the form of a data frame, which is suitable for most uses in R.The financial data is then displayed in the Table <a href="data.html#tab:Gold-Data-Table">2.1</a>.</p>
+<table>
+<caption><span id="tab:Gold-Data-Table">Table 2.1: </span>First Few Rows of Financial Data Set Quandl</caption>
+<thead>
+<tr class="header">
+<th align="left">Date</th>
+<th align="right">USD (AM)</th>
+<th align="right">USD (PM)</th>
+<th align="right">GBP (AM)</th>
+<th align="right">GBP (PM)</th>
+<th align="right">EURO (AM)</th>
+<th align="right">EURO (PM)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2020-05-19</td>
+<td align="right">1735.25</td>
+<td align="right">1737.95</td>
+<td align="right">1416.14</td>
+<td align="right">1418.34</td>
+<td align="right">1584.11</td>
+<td align="right">1589.01</td>
+</tr>
+<tr class="even">
+<td align="left">2020-05-18</td>
+<td align="right">1756.90</td>
+<td align="right">1734.70</td>
+<td align="right">1450.85</td>
+<td align="right">1423.15</td>
+<td align="right">1625.84</td>
+<td align="right">1597.66</td>
+</tr>
+<tr class="odd">
+<td align="left">2020-05-15</td>
+<td align="right">1734.85</td>
+<td align="right">1735.35</td>
+<td align="right">1422.06</td>
+<td align="right">1427.67</td>
+<td align="right">1604.39</td>
+<td align="right">1602.60</td>
+</tr>
+<tr class="even">
+<td align="left">2020-05-14</td>
+<td align="right">1716.40</td>
+<td align="right">1731.60</td>
+<td align="right">1403.67</td>
+<td align="right">1420.09</td>
+<td align="right">1587.84</td>
+<td align="right">1603.98</td>
+</tr>
+<tr class="odd">
+<td align="left">2020-05-13</td>
+<td align="right">1699.85</td>
+<td align="right">1708.40</td>
+<td align="right">1383.85</td>
+<td align="right">1394.74</td>
+<td align="right">1568.11</td>
+<td align="right">1573.09</td>
+</tr>
+<tr class="even">
+<td align="left">2020-05-12</td>
+<td align="right">1703.45</td>
+<td align="right">1702.40</td>
+<td align="right">1381.84</td>
+<td align="right">1379.80</td>
+<td align="right">1574.50</td>
+<td align="right">1565.87</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="stock-prices" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Stock Prices</h3>
+<p>We will use the <code>quantmod</code> R package to retrieve stock price data. We pass the stock price symbols and data ranges to Yahoo which returns the financial data. In our case, we ask for S&amp;P 500, Kelly Temp Services, Tripwire, and GrubHub stock prices from fifteen days (<code>Sys.Date() - 15</code>) ago to today (<code>Sys.Date()</code>). No API key is required. Note that <code>quantmod</code> relies on additional R packages - R will download these for us automatically.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(quantmod)      <span class="co"># retrieve financial data (used for function via getSymbols) (masks as.Date from base R) </span>
+
+stock_data &lt;-<span class="st"> </span><span class="kw">getSymbols</span>(<span class="kw">c</span>(<span class="st">&quot;^GSPC&quot;</span>, <span class="st">&quot;KELYA&quot;</span>, <span class="st">&quot;TRIP&quot;</span>, <span class="st">&quot;GRUB&quot;</span>), <span class="co"># KELYA = Kelly Services, TRIP = Trip Advisor, GRUB = Grubhub</span>
+                         <span class="dt">src =</span> <span class="st">&#39;yahoo&#39;</span>, 
+                         <span class="dt">from =</span> (<span class="kw">Sys.Date</span>() <span class="op">-</span><span class="st"> </span><span class="dv">15</span>),
+                         <span class="dt">to =</span> <span class="kw">Sys.Date</span>()) </code></pre></div>
+<p>Unlike the data returned via <code>Quandl</code>, the data returned from <code>quantmod</code> needs some manipulation to be ready for use. As we asked for four different prices, <code>quantmod</code> returned a structure with four sets of data nested within. Execute the command <code>head(stock_data)</code> in the Console to see the four structures’ names.</p>
+<p>We will load three libraries - <code>dplyr</code><span class="citation">(Wickham et al. <a href="#ref-R-dplyr">2020</a>)</span>, <code>broom</code><span class="citation">(Robinson and Hayes <a href="#ref-R-broom">2020</a>)</span>, and <code>tidyr</code><span class="citation">(Wickham and Henry <a href="#ref-R-tidyr">2020</a>)</span> - that will allow us to extract and manipulate the data into a form usable for analysis. We first pull the Tripwire data from the <code>stock_data</code> structure via the <code>tidy</code> command, then convert the data from a ‘long’ format to a ‘wide’ format via the <code>spread</code> command.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(broom)   <span class="co"># tidy function</span>
+<span class="kw">library</span>(tidyr)   <span class="co"># spread function</span>
+
+TRIP_tidy &lt;-<span class="st"> </span><span class="kw">tidy</span>(TRIP) <span class="co"># tidy from broom package converts list to &quot;long&quot; data frame for DJI </span>
+
+TRIP_wide &lt;-<span class="st"> </span><span class="kw">spread</span>(TRIP_tidy, series, value) <span class="co"># spread from tidyr; converts long to wide using series values for new columns; that is, turn series row values to new columns</span></code></pre></div>
+<p>We want to explore not the absolute price of Tripwire stock on a given day but the difference between its high and low price. We will need a new variable we will call <code>Trip.Diff</code> (to stay consistent with the naming convention of <code>quantmod</code>) and add this new variable to the data set via the <code>mutate</code> function provided through the <code>dplyr</code> package.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)   <span class="co"># for mutate function (may already be loaded, but loading twice will not create an error)</span>
+
+<span class="co"># The change in price during the day may be of interest</span>
+TRIP_wide &lt;-<span class="st"> </span>TRIP_wide <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">TRIP.Diff =</span> TRIP.High <span class="op">-</span><span class="st"> </span>TRIP.Low)</code></pre></div>
+<p>The first few rows of the Tripwire data are displayed in Table <a href="data.html#tab:Tripwire-Data-Table">2.2</a> as rendered through the package <code>knitr</code><span class="citation">(Xie <a href="#ref-R-knitr">2020</a><a href="#ref-R-knitr">b</a>)</span>.</p>
+<table>
+<caption><span id="tab:Tripwire-Data-Table">Table 2.2: </span>First Few Rows of Financial Data Set</caption>
+<thead>
+<tr class="header">
+<th align="left">index</th>
+<th align="right">TRIP.Adjusted</th>
+<th align="right">TRIP.Close</th>
+<th align="right">TRIP.High</th>
+<th align="right">TRIP.Low</th>
+<th align="right">TRIP.Open</th>
+<th align="right">TRIP.Volume</th>
+<th align="right">TRIP.Diff</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2020-05-05</td>
+<td align="right">18.36</td>
+<td align="right">18.36</td>
+<td align="right">19.32</td>
+<td align="right">18.08</td>
+<td align="right">19.13</td>
+<td align="right">2779100</td>
+<td align="right">1.240000</td>
+</tr>
+<tr class="even">
+<td align="left">2020-05-06</td>
+<td align="right">18.09</td>
+<td align="right">18.09</td>
+<td align="right">18.59</td>
+<td align="right">17.58</td>
+<td align="right">18.14</td>
+<td align="right">2541300</td>
+<td align="right">1.010000</td>
+</tr>
+<tr class="odd">
+<td align="left">2020-05-07</td>
+<td align="right">18.72</td>
+<td align="right">18.72</td>
+<td align="right">18.92</td>
+<td align="right">18.31</td>
+<td align="right">18.55</td>
+<td align="right">3537000</td>
+<td align="right">0.610001</td>
+</tr>
+<tr class="even">
+<td align="left">2020-05-08</td>
+<td align="right">17.91</td>
+<td align="right">17.91</td>
+<td align="right">18.90</td>
+<td align="right">17.50</td>
+<td align="right">18.05</td>
+<td align="right">6450900</td>
+<td align="right">1.400000</td>
+</tr>
+<tr class="odd">
+<td align="left">2020-05-11</td>
+<td align="right">16.70</td>
+<td align="right">16.70</td>
+<td align="right">17.78</td>
+<td align="right">16.67</td>
+<td align="right">17.78</td>
+<td align="right">4766500</td>
+<td align="right">1.110001</td>
+</tr>
+<tr class="even">
+<td align="left">2020-05-12</td>
+<td align="right">16.90</td>
+<td align="right">16.90</td>
+<td align="right">17.27</td>
+<td align="right">16.62</td>
+<td align="right">16.78</td>
+<td align="right">3743300</td>
+<td align="right">0.649999</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="social-media-data" class="section level2">
+<h2><span class="header-section-number">2.2</span> Social Media Data</h2>
+<hr>
+<div id="twitter" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Twitter</h3>
+<p>Twitter requires registration in the form of an ‘application’ to use its API. Tweets that are public and can be searched via an API by keyword or account. Twitter does impose restrictions on the API use, e.g., limiting the number of calls per minute and the number of tweets returned.</p>
+<p>Twitter uses <a href="https://en.wikipedia.org/wiki/OAuth">OAuth 1.0 tokens</a> for authorization. You will need a consumer key, a consumer secret, an access token, and an access secret (basically, you need five character strings). Set up instructions can be found at <a href="https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html" class="uri">https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html</a>.</p>
+<p>We will use the command <code>search_tweets</code> via the <code>rtweet</code> package to retrieve Twitter data by keywords. If you select a very broad term for search (e.g., “election”) you might only retrieve data from the last few hours. If you select a more obscure term (e.g., “kakorrhaphiophobia”) you still can only retrieve Tweets up to seven days old when using the free Twitter account.</p>
+<p>We first set parameter values for the call to <code>search_tweets</code>, using the same technique for loading the token values, setting the search string to <em>Caribbean</em> and / or <em>vacation</em>, and limit the number of returned tweets to 1,000. The data returned is accessible through the <code>vacation_tweets</code> variable.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(httpuv) <span class="co"># for browser based twitter authentication</span>
+<span class="kw">library</span>(rtweet) 
+
+twitter_token &lt;-<span class="st"> </span><span class="kw">create_token</span>(
+   <span class="dt">app =</span> <span class="kw">Sys.getenv</span>(<span class="st">&quot;TWITTER_app&quot;</span>),
+   <span class="dt">consumer_key =</span> <span class="kw">Sys.getenv</span>(<span class="st">&quot;TWITTER_consumer_key&quot;</span>),
+   <span class="dt">consumer_secret =</span> <span class="kw">Sys.getenv</span>(<span class="st">&quot;TWITTER_consumer_secret&quot;</span>),
+   <span class="dt">access_token =</span> <span class="kw">Sys.getenv</span>(<span class="st">&quot;TWITTER_access_token&quot;</span>),
+   <span class="dt">access_secret =</span> <span class="kw">Sys.getenv</span>(<span class="st">&quot;TWITTER_access_secret&quot;</span>))
+
+tweet_search_string &lt;-<span class="st"> &#39;Caribbean vacation &#39;</span> <span class="co"># space for AND; this string also for hashtag terms and can include logic such as min_retweets:50 to return tweets that were retweeted a least 50 times</span>
+Kmax_number_of_tweets =<span class="st"> </span><span class="dv">1000</span> <span class="co"># Up to 18,000</span>
+
+vacation_tweets &lt;-<span class="st"> </span><span class="kw">search_tweets</span>(
+  <span class="dt">q =</span> tweet_search_string, 
+  <span class="dt">n =</span> Kmax_number_of_tweets, <span class="co"># Up to 18000 every 15 minutes</span>
+  <span class="dt">include_rts =</span> <span class="ot">FALSE</span>, <span class="co"># Retweets = tweet generated by &quot;retweet&quot; (recycle arrows), not quotes entering &quot;RT&quot; into text of one&#39;s tweets</span>
+  <span class="dt">lang =</span> <span class="st">&quot;en&quot;</span>, <span class="co"># language: BCP 47 language identifier</span>
+  <span class="dt">geocode =</span> <span class="kw">lookup_coords</span>(<span class="st">&quot;usa&quot;</span>), <span class="co"># for geo enabled tweets, most tweets do not include a geo code</span>
+<span class="co">#  since = from,</span>
+<span class="co">#  until = Sys.Date(),</span>
+  <span class="dt">retryonratelimit =</span> <span class="ot">FALSE</span>) <span class="co"># If ask for &gt; 18k if TRUE, will wait and resend request when eligible for next batch</span></code></pre></div>
+<p>The Twitter API returns dozens of fields as shown below. While we will concentrate only on the actual tweet text, other fields that might be of interest is the number of retweets or the number of account followers.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(vacation_tweets)</code></pre></div>
+<pre><code>##  [1] &quot;user_id&quot;                 &quot;status_id&quot;              
+##  [3] &quot;created_at&quot;              &quot;screen_name&quot;            
+##  [5] &quot;text&quot;                    &quot;source&quot;                 
+##  [7] &quot;display_text_width&quot;      &quot;reply_to_status_id&quot;     
+##  [9] &quot;reply_to_user_id&quot;        &quot;reply_to_screen_name&quot;   
+## [11] &quot;is_quote&quot;                &quot;is_retweet&quot;             
+## [13] &quot;favorite_count&quot;          &quot;retweet_count&quot;          
+## [15] &quot;quote_count&quot;             &quot;reply_count&quot;            
+## [17] &quot;hashtags&quot;                &quot;symbols&quot;                
+## [19] &quot;urls_url&quot;                &quot;urls_t.co&quot;              
+## [21] &quot;urls_expanded_url&quot;       &quot;media_url&quot;              
+## [23] &quot;media_t.co&quot;              &quot;media_expanded_url&quot;     
+## [25] &quot;media_type&quot;              &quot;ext_media_url&quot;          
+## [27] &quot;ext_media_t.co&quot;          &quot;ext_media_expanded_url&quot; 
+## [29] &quot;ext_media_type&quot;          &quot;mentions_user_id&quot;       
+## [31] &quot;mentions_screen_name&quot;    &quot;lang&quot;                   
+## [33] &quot;quoted_status_id&quot;        &quot;quoted_text&quot;            
+## [35] &quot;quoted_created_at&quot;       &quot;quoted_source&quot;          
+## [37] &quot;quoted_favorite_count&quot;   &quot;quoted_retweet_count&quot;   
+## [39] &quot;quoted_user_id&quot;          &quot;quoted_screen_name&quot;     
+## [41] &quot;quoted_name&quot;             &quot;quoted_followers_count&quot; 
+## [43] &quot;quoted_friends_count&quot;    &quot;quoted_statuses_count&quot;  
+## [45] &quot;quoted_location&quot;         &quot;quoted_description&quot;     
+## [47] &quot;quoted_verified&quot;         &quot;retweet_status_id&quot;      
+## [49] &quot;retweet_text&quot;            &quot;retweet_created_at&quot;     
+## [51] &quot;retweet_source&quot;          &quot;retweet_favorite_count&quot; 
+## [53] &quot;retweet_retweet_count&quot;   &quot;retweet_user_id&quot;        
+## [55] &quot;retweet_screen_name&quot;     &quot;retweet_name&quot;           
+## [57] &quot;retweet_followers_count&quot; &quot;retweet_friends_count&quot;  
+## [59] &quot;retweet_statuses_count&quot;  &quot;retweet_location&quot;       
+## [61] &quot;retweet_description&quot;     &quot;retweet_verified&quot;       
+## [63] &quot;place_url&quot;               &quot;place_name&quot;             
+## [65] &quot;place_full_name&quot;         &quot;place_type&quot;             
+## [67] &quot;country&quot;                 &quot;country_code&quot;           
+## [69] &quot;geo_coords&quot;              &quot;coords_coords&quot;          
+## [71] &quot;bbox_coords&quot;             &quot;status_url&quot;             
+## [73] &quot;name&quot;                    &quot;location&quot;               
+## [75] &quot;description&quot;             &quot;url&quot;                    
+## [77] &quot;protected&quot;               &quot;followers_count&quot;        
+## [79] &quot;friends_count&quot;           &quot;listed_count&quot;           
+## [81] &quot;statuses_count&quot;          &quot;favourites_count&quot;       
+## [83] &quot;account_created_at&quot;      &quot;verified&quot;               
+## [85] &quot;profile_url&quot;             &quot;profile_expanded_url&quot;   
+## [87] &quot;account_lang&quot;            &quot;profile_banner_url&quot;     
+## [89] &quot;profile_background_url&quot;  &quot;profile_image_url&quot;</code></pre>
+<p>For convenience, we will pull the fields <code>created_at</code>, <code>text</code>, <code>favorite_count</code>, and <code>retweet_count</code> into another data set - <code>vacation_tweets_df</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#vacation_tweets_df$europe &lt;- grepl(&quot; Europe &quot;, rt$text, ignore.case = TRUE) # flag to indicate text include term &#39;Europe&#39;</span>
+vacation_tweets_df &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">created_at =</span> vacation_tweets<span class="op">$</span>created_at, 
+                                 <span class="dt">text =</span> vacation_tweets<span class="op">$</span>text, 
+                                 <span class="dt">favorite_count =</span> vacation_tweets<span class="op">$</span>favorite_count, 
+                                 <span class="dt">retweet_count =</span> vacation_tweets<span class="op">$</span>retweet_count) <span class="co"># tibble keeps the text from defaulting to factor</span></code></pre></div>
+<p>Twitter also allows searches by account via the command <code>get_timeline</code>. In the code below (which is not executred), tweets sent by the news service <em>Business Wire</em> would be captured and added to the <code>vacation_tweets_df</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NewsFromBW_tweets &lt;-<span class="st"> </span><span class="kw">get_timeline</span>(<span class="st">&quot;NewsFromBW&quot;</span>, <span class="dt">n =</span> Kmax_number_of_tweets)
+NewsFromBW_tweets_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">created_at =</span> NewsFromBW_tweets<span class="op">$</span>created_at, <span class="dt">text =</span> NewsFromBW_tweets<span class="op">$</span>text, <span class="dt">favorite_count =</span> NewsFromBW_tweets<span class="op">$</span>favorite_count, <span class="dt">retweet_count =</span> NewsFromBW_tweets<span class="op">$</span>retweet_count)
+
+vacation_tweets_df<span class="op">$</span>source &lt;-<span class="st"> &quot;General&quot;</span>
+NewsFromBW_tweets_df<span class="op">$</span>source &lt;-<span class="st"> &quot;NewsFromBW&quot;</span>
+
+vacation_tweets_df &lt;-<span class="st"> </span><span class="kw">rbind</span>(NewsFromBW_tweets_df, vacation_tweets_df)
+vacation_tweets_df<span class="op">$</span>text &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&quot; Caribbean&quot;</span>, <span class="st">&quot;&lt;span class=&#39;searchterms&#39;&gt; contract&lt;/span&gt;&quot;</span>, vacation_tweets_df<span class="op">$</span>text)</code></pre></div>
+<p>The first few rows of the Twitter data are displayed below. Caution: The Twitter text may include characters R will interpret as escape characters which may adversely affect the bookdown generation.</p>
+<pre><code>## # A tibble: 6 x 4
+##   created_at          text                          favorite_count retweet_count
+##   &lt;dttm&gt;              &lt;chr&gt;                                  &lt;int&gt;         &lt;int&gt;
+## 1 2020-05-20 20:02:49 &quot;You know what? If things al~              0             0
+## 2 2020-05-20 19:32:44 &quot;@GayUnclePhil Jelly! June w~              1             0
+## 3 2020-05-20 19:19:15 &quot;I can’t stop thinking about~             11             0
+## 4 2020-05-20 19:12:13 &quot;5 Day Eastern Caribbean Fro~              1             0
+## 5 2020-05-20 18:41:58 &quot;[Race to the Finish] Artee ~              0             0
+## 6 2020-05-20 18:39:38 &quot;I know I always say this, b~              0             0</code></pre>
+<p><font size="2"><em>No values appearing in the ‘favorite_count’ and ‘retweet_count’ may indicate values of zero</em></font></p>
+</div>
+<div id="reddit" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Reddit</h3>
+<p>Reddit does not require an API key. Using the function <code>get_reddit</code> from the package <code>RedditExtractoR</code>, we will obtain posts from the rubReddit <em>stock picks</em>, searching by the terms <em>gold</em> and _a few other terms <em>silver</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(RedditExtractoR)
+   
+reddit_data =<span class="st"> </span><span class="kw">get_reddit</span>(<span class="dt">search_terms =</span> <span class="st">&quot;gold silver&quot;</span>, <span class="dt">subreddit =</span> <span class="st">&quot;stock_picks&quot;</span>, <span class="dt">sort_by =</span> <span class="st">&quot;new&quot;</span>) <span class="co"># returns text as chr, not factor</span></code></pre></div>
+<pre><code>## 
+  |                                                                            
+  |                                                                      |   0%
+  |                                                                            
+  |==================                                                    |  25%
+  |                                                                            
+  |===================================                                   |  50%
+  |                                                                            
+  |====================================================                  |  75%
+  |                                                                            
+  |======================================================================| 100%</code></pre>
+<p>The first few rows of the Reddit results are displayed below.</p>
+<pre><code>## [1] &quot;UBS Wealth Management Determines Ideal Selling Point for Gold:\n\nhttp://gold-prediction.com/2016/03/13/gold-news-ubs-wealth-management-determines-ideal-selling-point-for-gold/&quot;
+## [2] &quot;Good to see this sub headed in a better direction. Best of luck!&quot;                                                                                                                
+## [3] &quot;Thanks! Hope to see you in the comments in the future!&quot;                                                                                                                          
+## [4] &quot;Good luck!\n\n\nPick of the month was good fun, I miss it.&quot;                                                                                                                      
+## [5] &quot;Thank you! I&#39;ll restart the stock pick contest at the end of next month with some rules, stat-tracking, and fun flairs as prizes!&quot;                                               
+## [6] &quot;Maybe a bot for a monthly reminder message too. I always seem to remember to make my pick on the 2nd or 3rd. &quot;</code></pre>
+</div>
+</div>
+<div id="economic-data" class="section level2">
+<h2><span class="header-section-number">2.3</span> Economic Data</h2>
+<hr>
+<div id="unemployment-insurance" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Unemployment Insurance</h3>
+<p>While an R <code>BEA</code> package exists for pulling data, I have had some issues using it (it has not been updated in a couple of years; meanwhile, the public sites offering data undergo frequent updates). So instead we will use a more generic solution, a RESTful pull via the R <code>httr</code> package (supporting cURL-like access to sites). We will ‘ask’ that the data is returned in a JSON (vs XML), a format that will need to be changed for use in R. Accordingly, we will use the R package <code>jsonlite</code> to convert the data into a wide format called a data frame or tibble. The documentation for the packages can be found at:</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/httr/" class="uri">https://cran.r-project.org/web/packages/httr/</a></li>
+<li><a href="https://cran.r-project.org/web/packages/jsonlite" class="uri">https://cran.r-project.org/web/packages/jsonlite</a></li>
+</ul>
+<p>The BEA data is available free of charge, but to registered users. Thus you will need to provide the unique key assigned to you by BEA as described at <a href="https://apps.bea.gov/API/signup/index.cfm" class="uri">https://apps.bea.gov/API/signup/index.cfm</a>.</p>
+<p>BEA methodologies can be found at <a href="https://www.bea.gov/resources/methodologies/nipa-handbook" class="uri">https://www.bea.gov/resources/methodologies/nipa-handbook</a>. A description of the data available can be found at <a href="https://apps.bea.gov/api/_pdf/bea_web_service_api_user_guide.pdf" class="uri">https://apps.bea.gov/api/_pdf/bea_web_service_api_user_guide.pdf</a> starting at page 16. The data set categories can be found at <a href="https://www.bea.gov/open-data" class="uri">https://www.bea.gov/open-data</a>).</p>
+<p>In the example provided below, we will obtain data from the <em>NIPA</em> database and store it in the variable called <code>BEA_response</code>. We check the return code hoping for a <em>200</em>, which indicates the technical transaction was successful, but that does not necessarily mean data was returned.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(httr) <span class="co"># Normmally I would load all packages in a single chunk at the begiining of the notebook</span>
+
+<span class="co"># Retrieve my BEA API Key stored in .Renviron project file</span>
+BEA_API_Key &lt;-<span class="st"> </span><span class="kw">Sys.getenv</span>(<span class="st">&quot;BEA_KEY&quot;</span>) 
+
+<span class="co"># Set parameter values for call</span>
+BEA_Data_Set_Name &lt;-<span class="st"> &quot;NIPA&quot;</span> <span class="co"># also &quot;NIUnderlingDetail&quot;, &quot;FixedAssets&quot;, &quot;MNE&quot;, &quot;GDPbyIndustry&quot;, &quot;ITA&quot; , &quot;IIP&quot;, &quot;InputOutput&quot; , &quot;UnderlyingGDPbyIndustry&quot;</span>
+BEA_Table_Name &lt;-<span class="st"> &quot;T20600&quot;</span> <span class="co"># Table T20600, Line 21 is Unemployment Insurance</span>
+BEA_Year &lt;-<span class="st"> &quot;2020&quot;</span>
+BEA_Frequency =<span class="st"> &quot;M&quot;</span> <span class="co"># A = Annual, Q = Quarterly, M = Monthly - can use combination</span>
+BEA_Results_Type &lt;-<span class="st"> &quot;JSON&quot;</span>
+
+<span class="co"># BEA_Data_Set_Name &lt;- &quot;NIUnderlyingDetail&quot; </span>
+<span class="co"># BEA_Table_Name &lt;- &quot;U70205S&quot; # Line 12 is Truck Sales</span>
+
+BEA_string &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;https://apps.bea.gov/api/data/?&amp;UserID=&quot;</span>, 
+                     BEA_API_Key, 
+                     <span class="st">&quot;&amp;method=GetData&quot;</span>, 
+                     <span class="st">&quot;&amp;DataSetName=&quot;</span>, BEA_Data_Set_Name, 
+                     <span class="st">&quot;&amp;TableName=&quot;</span>, BEA_Table_Name, 
+                     <span class="st">&quot;&amp;Frequency=&quot;</span>, BEA_Frequency,
+                     <span class="st">&quot;&amp;Year=&quot;</span>, BEA_Year, 
+                     <span class="st">&quot;&amp;ResultFormat=&quot;</span>, BEA_Results_Type) <span class="co"># The parameters TableName, Frequency, and Year are required for the NIPA data sets. Other BEA data sets may require different parameters</span>
+
+
+BEA_response &lt;-<span class="st"> </span><span class="kw">GET</span>(BEA_string) <span class="co"># GET passes the string we created to the BEA web site. THe data set results returned are placed into the BEA_response variable</span>
+
+<span class="kw">http_status</span>(BEA_response) <span class="co"># We Want code 200, which indicates successfull technical call, but not that data was returned</span></code></pre></div>
+<pre><code>## $category
+## [1] &quot;Success&quot;
+## 
+## $reason
+## [1] &quot;OK&quot;
+## 
+## $message
+## [1] &quot;Success: (200) OK&quot;</code></pre>
+<p>Now we reformat the JSON data to a form usable by most R packages.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(jsonlite)
+
+BEA_response_content &lt;-<span class="st"> </span><span class="kw">content</span>(BEA_response, <span class="st">&quot;text&quot;</span>) <span class="co"># the content command &#39;is&#39;pulls&#39; the data from results</span>
+
+BEA_response_struct &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(BEA_response_content) <span class="co"># Convert the JSON into a table-like format</span>
+
+<span class="co"># THe BEA_response_struct variable is an elaborate structure that includes data and metadata (use the command str(BEA_response_struct) to see the structure). We just want to data. So we reference the data into a new variable.</span>
+BEA_tibble &lt;-<span class="st"> </span><span class="kw">tibble</span>(BEA_response_struct<span class="op">$</span>BEAAPI<span class="op">$</span>Results<span class="op">$</span>Data) <span class="co"># Capture only the part of the table we want</span></code></pre></div>
+<p>Table <em>T20600</em> from the <em>NIPA</em> database includes a number of variables. We will pull the unemployment insurance (designated by<code>LineNumber = 21</code>) into a new variable called <code>BEA_tibble_unemployment_ins</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BEA_tibble_unemployment_ins &lt;-<span class="st"> </span><span class="kw">filter</span>(BEA_tibble, LineNumber <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="co"># Unemployment Insurance, filter is a dplyr function</span></code></pre></div>
+<p>The first few rows of the BEA results are displayed in Table <a href="data.html#tab:Economic-Data-Table">2.3</a>.</p>
+<table>
+<caption><span id="tab:Economic-Data-Table">Table 2.3: </span>First Few Rows of Economic Data Set</caption>
+<thead>
+<tr class="header">
+<th align="left">TableName</th>
+<th align="left">SeriesCode</th>
+<th align="left">LineNumber</th>
+<th align="left">LineDescription</th>
+<th align="left">TimePeriod</th>
+<th align="left">METRIC_NAME</th>
+<th align="left">CL_UNIT</th>
+<th align="left">UNIT_MULT</th>
+<th align="left">DataValue</th>
+<th align="left">NoteRef</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">T20600</td>
+<td align="left">W825RC</td>
+<td align="left">21</td>
+<td align="left">Unemployment insurance</td>
+<td align="left">2020M01</td>
+<td align="left">Current Dollars</td>
+<td align="left">Level</td>
+<td align="left">6</td>
+<td align="left">26,398</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">T20600</td>
+<td align="left">W825RC</td>
+<td align="left">21</td>
+<td align="left">Unemployment insurance</td>
+<td align="left">2020M02</td>
+<td align="left">Current Dollars</td>
+<td align="left">Level</td>
+<td align="left">6</td>
+<td align="left">26,153</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">T20600</td>
+<td align="left">W825RC</td>
+<td align="left">21</td>
+<td align="left">Unemployment insurance</td>
+<td align="left">2020M03</td>
+<td align="left">Current Dollars</td>
+<td align="left">Level</td>
+<td align="left">6</td>
+<td align="left">65,290</td>
+<td align="left">NA</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-rtweet">
+<p>Kearney, Michael W. 2020. <em>Rtweet: Collecting Twitter Data</em>. <a href="https://CRAN.R-project.org/package=rtweet" class="uri">https://CRAN.R-project.org/package=rtweet</a>.</p>
+</div>
+<div id="ref-R-Quandl">
+<p>Raymond McTaggart, Gergely Daroczi, and Clement Leung. 2019. <em>Quandl: API Wrapper for Quandl.com</em>. <a href="https://CRAN.R-project.org/package=Quandl" class="uri">https://CRAN.R-project.org/package=Quandl</a>.</p>
+</div>
+<div id="ref-R-RedditExtractoR">
+<p>Rivera, Ivan. 2019. <em>RedditExtractoR: Reddit Data Extraction Toolkit</em>. <a href="https://CRAN.R-project.org/package=RedditExtractoR" class="uri">https://CRAN.R-project.org/package=RedditExtractoR</a>.</p>
+</div>
+<div id="ref-R-broom">
+<p>Robinson, David, and Alex Hayes. 2020. <em>Broom: Convert Statistical Analysis Objects into Tidy Tibbles</em>. <a href="https://CRAN.R-project.org/package=broom" class="uri">https://CRAN.R-project.org/package=broom</a>.</p>
+</div>
+<div id="ref-R-quantmod">
+<p>Ryan, Jeffrey A., and Joshua M. Ulrich. 2020. <em>Quantmod: Quantitative Financial Modelling Framework</em>. <a href="https://CRAN.R-project.org/package=quantmod" class="uri">https://CRAN.R-project.org/package=quantmod</a>.</p>
+</div>
+<div id="ref-R-httr">
+<p>Wickham, Hadley. 2019. <em>Httr: Tools for Working with Urls and Http</em>. <a href="https://CRAN.R-project.org/package=httr" class="uri">https://CRAN.R-project.org/package=httr</a>.</p>
+</div>
+<div id="ref-R-tidyr">
+<p>Wickham, Hadley, and Lionel Henry. 2020. <em>Tidyr: Tidy Messy Data</em>. <a href="https://CRAN.R-project.org/package=tidyr" class="uri">https://CRAN.R-project.org/package=tidyr</a>.</p>
+</div>
+<div id="ref-R-dplyr">
+<p>Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2020. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a>.</p>
+</div>
+<div id="ref-R-knitr">
+<p>Xie, Yihui. 2020b. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. <a href="https://CRAN.R-project.org/package=knitr" class="uri">https://CRAN.R-project.org/package=knitr</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="txt.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
